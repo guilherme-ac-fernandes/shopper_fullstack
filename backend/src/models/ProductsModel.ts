@@ -9,7 +9,7 @@ export default class ProductModel {
   }
 
   async findAll(): Promise<IProduct[] | null> {
-    return this._model.findAll({ attributes: { exclude: ['id', 'password'] } });
+    return this._model.findAll();
   }
 
   async create(
