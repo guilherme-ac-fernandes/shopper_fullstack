@@ -1,3 +1,5 @@
+import { IPacks } from '../interfaces/IPacks';
+import Sequelize from '../database/models';
 import { IProduct } from '../interfaces/IProduct';
 import ProductsModel from '../models/ProductsModel';
 
@@ -29,15 +31,24 @@ export default class ProductService {
     }
   }
 
-  public async updateSalesPrice({ code, name, costPrice }: IProduct, newPrice: number) {
+  public async updateSales(
+    { code, name, costPrice }: IProduct,
+    newPrice: number,
+    { packId, qty }: IPacks,
+  ) {
+    const transaction = await Sequelize.transaction();
     try {
       const updatedProduct = { code, name, costPrice, salesPrice: newPrice };
-
-      await this._product.updateSalesPrice(updatedProduct);
+      await this._product.updateSales(updatedProduct, transaction);
+      await this._product.updateSales({
+        code: packId, name, costPrice, salesPrice: newPrice * qty,
+      }, transaction);
+      await transaction.commit();
       return { code: 201, data: { ...updatedProduct, salesPrice: newPrice.toFixed(2) } };
     } catch (error) {
       console.log(error);
 
+      await transaction.rollback();
       return { code: 500, message: 'Internal server error' };
     }
   }
