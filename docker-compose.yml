@@ -24,11 +24,12 @@ services:
     depends_on:
       - db
     environment:
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=password
-      - MYSQL_DATABASE=shopper_db
-      - HOSTNAME=db
-      - PORT=3001
+      - APP_PORT=3001
+      - DB_USER=root
+      - DB_PASSWORD=password
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_SCHEMA=SHOPPER
   
   db_mysql:
     image: mysql:5.7
