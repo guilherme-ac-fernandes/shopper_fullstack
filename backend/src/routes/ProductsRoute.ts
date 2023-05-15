@@ -2,6 +2,7 @@ import { Router } from 'express';
 import ProductsModel from '../models/ProductsModel';
 import ProductsService from '../services/ProductsService';
 import ProductsController from '../controllers/ProductsController';
+import Middlewares from '../middlewares';
 
 const route = Router();
 
@@ -21,6 +22,7 @@ route.get(
 
 route.post(
   '/',
+  Middlewares.validateProduct,
   (req, res, next) => productController.create(req, res, next),
 );
 
