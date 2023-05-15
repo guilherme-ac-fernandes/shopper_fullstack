@@ -19,4 +19,14 @@ route.get(
   (req, res, next) => productController.findAll(req, res, next),
 );
 
+route.post(
+  '/',
+  (req, res, next) => productController.create(req, res, next),
+);
+
+route.patch(
+  '/',
+  (req, res, next) => productController.updateSalesPrice(req, res, next),
+);
+
 export default route;
