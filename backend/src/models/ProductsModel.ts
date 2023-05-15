@@ -1,3 +1,4 @@
+import { Transaction } from 'sequelize/types';
 import { IProduct } from '../interfaces/IProduct';
 import Products from '../database/models/Products';
 
@@ -18,7 +19,7 @@ export default class ProductModel {
     return this._model.create({ code, name, costPrice, salesPrice });
   }
 
-  async updateSalesPrice({ code, salesPrice }: IProduct) {
-    return this._model.update({ salesPrice }, { where: { code } });
+  async updateSales({ code, salesPrice }: IProduct, transaction: Transaction) {
+    return this._model.update({ salesPrice }, { where: { code }, transaction });
   }
 }
