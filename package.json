@@ -1,0 +1,29 @@
+{
+  "name": "shopper_fullstack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compose:up": "docker-compose up -d --build",
+    "compose:down": "docker-compose down",
+    "back:acess": "docker exec -it shopper_backend /bin/sh",
+    "front:acess": "docker exec -it shopper_frontend /bin/sh",
+    "db:reset": "npm run build && npm run db:reset"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guilherme-ac-fernandes/shopper_fullstack.git"
+  },
+  "keywords": [
+    "shopper",
+    "fullstack",
+    "products",
+    "e-commerce"
+  ],
+  "author": "Guilherme Fernandes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guilherme-ac-fernandes/shopper_fullstack/issues"
+  },
+  "homepage": "https://github.com/guilherme-ac-fernandes/shopper_fullstack#readme"
+}
