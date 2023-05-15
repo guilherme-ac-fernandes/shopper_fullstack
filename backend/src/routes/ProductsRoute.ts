@@ -28,6 +28,7 @@ route.post(
 
 route.patch(
   '/',
+  Middlewares.validateUpdate,
   (req, res, next) => productController.updateSalesPrice(req, res, next),
 );
 
