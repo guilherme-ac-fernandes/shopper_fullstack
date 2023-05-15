@@ -30,7 +30,7 @@ route.patch(
   '/',
   Middlewares.validateUpdate,
   Middlewares.hasPacksToUpdate,
-  (req, res, next) => productController.updateSalesPrice(req, res, next),
+  (req, res, next) => productController.updateSales(req, res, next),
 );
 
 export default route;
