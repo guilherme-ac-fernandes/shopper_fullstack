@@ -2,7 +2,7 @@ import * as express from 'express';
 import * as cors from 'cors';
 import 'express-async-errors';
 // import UserRoute from '../routes/UserRoute';
-// import AccountRoute from '../routes/AccountRoute';
+import ProductsRoute from '../routes/ProductsRoute';
 // import TransactionRoute from '../routes/TransactionRoute';
 // import Middlewares from '../middlewares';
 
@@ -20,7 +20,7 @@ class App {
     this.app.get('/', (_req, res) => res.json({ ok: true }));
 
     // this.app.use(UserRoute);
-    // this.app.use('/account', AccountRoute);
+    this.app.use('/products', ProductsRoute);
     // this.app.use('/transactions', TransactionRoute);
 
     // this.app.use(Middlewares.error);
