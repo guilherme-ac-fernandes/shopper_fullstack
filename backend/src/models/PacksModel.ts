@@ -6,9 +6,9 @@ export default class PacksModel {
   protected _model = Packs;
   protected _product = Products;
 
-  // async findByCode(code: number): Promise<IProduct | null> {
-  //   return this._model.findOne({ where: { code } });
-  // }
+  async findByProductId(productId: number): Promise<IPacks[] | null> {
+    return this._model.findAll({ where: { productId } });
+  }
 
   public include() {
     return [

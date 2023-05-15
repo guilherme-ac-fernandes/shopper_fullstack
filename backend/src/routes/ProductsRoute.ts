@@ -29,6 +29,7 @@ route.post(
 route.patch(
   '/',
   Middlewares.validateUpdate,
+  Middlewares.hasPacksToUpdate,
   (req, res, next) => productController.updateSalesPrice(req, res, next),
 );
 
