@@ -1,4 +1,3 @@
-import { Transaction } from 'sequelize/types';
 import { IProduct } from '../interfaces/IProduct';
 import Products from '../database/models/Products';
 
@@ -15,15 +14,11 @@ export default class UserModel {
 
   async create(
     { code, name, costPrice, salesPrice }: IProduct,
-    transaction: Transaction,
   ): Promise<IProduct | null> {
-    return this._model.create(
-      { code, name, costPrice, salesPrice },
-      { transaction },
-    );
+    return this._model.create({ code, name, costPrice, salesPrice });
   }
 
-  async update({ code, costPrice, salesPrice }: IProduct, transaction: Transaction) {
-    return this._model.update({ costPrice, salesPrice }, { where: { code }, transaction });
+  async updateSalesPrice({ code, salesPrice }: IProduct) {
+    return this._model.update({ salesPrice }, { where: { code } });
   }
 }
