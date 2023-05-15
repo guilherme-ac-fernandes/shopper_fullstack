@@ -1,6 +1,5 @@
 import { IProduct } from '../interfaces/IProduct';
 import ProductsModel from '../models/ProductsModel';
-// import Sequelize from '../database/models';
 
 export default class UserService {
   private _product: ProductsModel;
@@ -21,25 +20,25 @@ export default class UserService {
     return { code: 200, data: products };
   }
 
-  // public async create() {
-  //   // const transaction = await Sequelize.transaction();
-  //   // try {
-  //   //   const { id: accountId } = await this._account.create(
-  //   //     { balance: 100.00 },
-  //   //     transaction,
-  //   //   );
-  //   //   await this._product.create(
-  //   //     { username, password: BcryptService.encrypt(password), accountId },
-  //   //     transaction,
-  //   //   );
-  //   //   await transaction.commit();
-  //   //   const token = TokenHelpers.createToken(username, accountId);
-  //   //   return { code: 201, data: { token, username, accountId } };
-  //   // } catch (error) {
-  //   //   // console.log(error);
-  //   //   await transaction.rollback();
-  //   //   return { code: 500, message: 'Internal server error' };
-  //   // }
-  //   return { ok: ok }
-  // }
+  public async create(newData: IProduct) {
+    try {
+      const newProduct = await this._product.create(newData);
+      return { code: 200, data: newProduct };
+    } catch (error) {
+      return { code: 500, message: 'Internal server error' };
+    }
+  }
+
+  public async updateSalesPrice({ code, name, costPrice }: IProduct, newPrice: number) {
+    try {
+      const updatedProduct = { code, name, costPrice, salesPrice: newPrice };
+
+      await this._product.updateSalesPrice(updatedProduct);
+      return { code: 201, data: { ...updatedProduct, salesPrice: newPrice.toFixed(2) } };
+    } catch (error) {
+      console.log(error);
+
+      return { code: 500, message: 'Internal server error' };
+    }
+  }
 }
