@@ -6,7 +6,7 @@ interface NewRequest extends Request {
   foundProduct?: IProduct,
 }
 
-export default class CarController {
+export default class ProductController {
   private _product: ProductsService;
   constructor(service: ProductsService) {
     this._product = service;

@@ -1,7 +1,7 @@
 import { IProduct } from '../interfaces/IProduct';
 import ProductsModel from '../models/ProductsModel';
 
-export default class UserService {
+export default class ProductService {
   private _product: ProductsModel;
 
   constructor(userModel: ProductsModel) {

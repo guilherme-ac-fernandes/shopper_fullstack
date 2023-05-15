@@ -1,7 +1,7 @@
 import { IProduct } from '../interfaces/IProduct';
 import Products from '../database/models/Products';
 
-export default class UserModel {
+export default class ProductModel {
   protected _model = Products;
 
   async findByCode(code: number): Promise<IProduct | null> {
