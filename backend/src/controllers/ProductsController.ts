@@ -1,9 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
+import { IPacks } from '../interfaces/IPacks';
 import { IProduct } from '../interfaces/IProduct';
 import ProductsService from '../services/ProductsService';
 
 interface NewRequest extends Request {
   foundProduct?: IProduct,
+  foundPack?: IPacks,
 }
 
 export default class ProductController {
@@ -31,14 +33,18 @@ export default class ProductController {
     return res.status(code).json(data);
   }
 
-  public async updateSalesPrice(req: Request, res: Response, _next: NextFunction) {
+  public async updateSales(req: Request, res: Response, _next: NextFunction) {
     const { new_price: newPrice } = req.body;
-    const { foundProduct } = req as NewRequest;
+    const { foundProduct, foundPack } = req as NewRequest;
 
     try {
       const {
         code: updateCode, data: updateData,
-      } = await this._product.updateSalesPrice(foundProduct as IProduct, Number(newPrice));
+      } = await this._product.updateSales(
+        foundProduct as IProduct,
+        Number(newPrice),
+        foundPack as IPacks,
+      );
       return res.status(updateCode).json(updateData);
     } catch (error) {
       return { code: 500, message: 'Internal server error' };
