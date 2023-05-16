@@ -13,7 +13,6 @@
 
 .modal-box {
   display: block;
-  /* background: white; */
   width: 80%;
   height: 80%;
   padding: 1rem;
@@ -43,18 +42,9 @@
   justify-content: center;
 }
 
-.not-found-crud-user-message {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--light-gray);
-  padding: 10px;
-  border-radius: 20px;
-  border: solid 2px var(--primary-color);
-  font-size: 1.2rem;
-  margin: 20px;
-  text-align: center;
-  width: 40%;
-  height: 40%;
-  min-width: 300px;
+.modal-box .buttonContainer {
+  z-index: 500;
+  position: relative;
+  /* top: 80;
+  right: 80; */
 }
