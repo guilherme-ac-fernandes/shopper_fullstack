@@ -6,3 +6,12 @@ export const getAllProducts = async () => {
     .then((response) => response.data);
   return data;
 };
+
+export const updateProduct = async (productCode: number, newPrice: string) => {
+  const data = await productsAPI
+    .patch('/', {
+      product_code: productCode, new_price: newPrice,
+    })
+    .then((response) => response.data);
+  return data;
+};
