@@ -1,0 +1,53 @@
+.display_product {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: var(--light-gray);
+  padding: 10px;
+  border-radius: 20px;
+  border: solid 2px var(--primary-color);
+  width: 300px;
+  font-size: 1rem;
+  margin: 20px;
+  text-align: center;
+}
+
+.button_aside {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+
+.display_product-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.display_product-cost {
+  color: red;
+  font-size: 1.4rem;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.display_product-sales {
+  color: var(--button-color);
+  font-size: 1.4rem;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.display_product form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
