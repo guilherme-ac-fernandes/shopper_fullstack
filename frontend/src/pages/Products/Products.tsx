@@ -14,10 +14,14 @@ function Products() {
 
   const { isOpen, toggle } = useModal();
 
-  useEffect(() => {
+  const updateProducts = () => {
     setLoading(true);
     getAllProducts().then((allProducts) => setProducts(allProducts));
     setLoading(false);
+  };
+
+  useEffect(() => {
+    updateProducts();
   }, []);
 
   const clickModal = ({ code: codeProduct }: IProduct) => {
@@ -37,6 +41,7 @@ function Products() {
         isOpen={isOpen}
         toggle={toggle}
         product={product as IProduct}
+        updateProducts={updateProducts}
       />
     </section>
   );
