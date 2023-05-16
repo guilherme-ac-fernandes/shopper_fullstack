@@ -83,3 +83,18 @@ Nas requisições PATCH é necessário informar o seguinte JSON:
 | Método | Funcionalidade | URL |
 |---|---|---|
 | `GET` | Retorna todos as informações de packs cadastrados | http://localhost:3001/packs |
+
+
+<br />
+
+### Demonstração FrontEnd
+ 
+#### Tela Inícial
+  <p align="center">
+    <img src="./images/inicialPage.png" alt="Tela Inicial - Demostração"/>
+  </p>
+
+#### Tela para alteração do valor de venda de um prodduto
+  <p align="center">
+    <img src="./images/updateSale.png" alt="Atualizar Produto - Demostração"/>
+  </p>
