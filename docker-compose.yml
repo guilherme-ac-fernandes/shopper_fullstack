@@ -22,7 +22,7 @@ services:
     volumes:
       - ./backend:/app-backend
     depends_on:
-      - db
+      - db_mysql
     environment:
       - APP_PORT=3001
       - DB_USER=root
@@ -40,7 +40,3 @@ services:
     restart: 'always'
     environment:
       - MYSQL_ROOT_PASSWORD=password
-
-  networks:
-    default:
-      name: shopper_api_net
